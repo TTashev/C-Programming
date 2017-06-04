@@ -1,0 +1,26 @@
+//Make a program that is creating and printing an array of long integers inputed by user. First the
+//user inputs the count of the numbers that he wants to input, then the user inputs numbers one by
+//one. For example if the user wants to input 4 numbers, first of all he/she inputs the number ‘4’, then
+//the first number, enter, second number, enter, third number, enter, forth number, enter.
+//At the end the program prints all the numbers.
+
+#include <stdio.h>
+#include <stdlib.h>
+
+int main()
+{
+    int n,i,j;
+    printf("Enter the size of the array: ");
+    scanf("%d",&n);
+    long * arr = (long*) malloc(n * sizeof(long));
+    for(i = 0; i < n; i++)
+    {
+        scanf("%d",arr + i);
+    }
+    for(j = 0; j < n; j++)
+    {
+        printf("%d\n",*(arr + j));
+    }
+    free(arr);
+    return 0;
+}
