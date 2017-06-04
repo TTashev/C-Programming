@@ -1,0 +1,42 @@
+//FibonacciWithFunction
+
+#include <stdio.h>
+#include <stdlib.h>
+
+int CalculatingNthFibonacci(int *Nth)
+
+int main()
+{
+    int NthFibonacci;
+    scanf("%d", &NthFibonacci);
+    int * FibonacciPointer = &NthFibonacci;
+    printf("%d",CalculatingNthFibonacci(FibonacciPointer));
+
+    return 0;
+}
+
+int CalculatingNthFibonacci(int *Nth)
+{
+    int fib, temp1, temp2;
+    fib = temp2 = 0;
+    temp1 = 1;
+    if(Nth == 0)
+    {
+       printf("Error: Input larger number than 0");
+    }
+    else if(Nth < 0)
+    {
+       printf("Error: Input positive number");
+    }
+    else
+    {
+       while((*Nth) != 0)
+       {
+          fib = temp1 + temp2;
+          temp2 = fib;
+          temp1 = fib - temp1;
+          (*Nth)--;
+       }
+       return fib;
+    }
+}
