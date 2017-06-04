@@ -1,0 +1,42 @@
+//ClosestFibonacciNumberWithFunction
+
+#include <stdio.h>
+#include <stdlib.h>
+
+void ClosestFibonacci(int *number);
+
+int main()
+{
+    printf("Please enter a number: ");
+    int num;
+    scanf("%d",&num);
+    int * NumPtr = &num;
+    ClosestFibonacci(NumPtr);
+
+    return 0;
+}
+
+void ClosestFibonacci(int *number)
+{
+    int UpperClosestFib, temp1, temp2, LowerClosestFib, FibbCounter;
+    UpperClosestFib = temp2 = temp1 = LowerClosestFib = FibbCounter = 1;
+    while(UpperClosestFib < (*number))
+    {
+        UpperClosestFib = temp1 + temp2;
+        if(UpperClosestFib < (*number))
+        {
+            LowerClosestFib = UpperClosestFib;
+        }
+        temp2 = UpperClosestFib;
+        temp1 = UpperClosestFib - temp1;
+        FibbCounter++;
+    }
+    if(abs((*number) - UpperClosestFib) < abs((*number) - LowerClosestFib))
+    {
+        printf("%d,%d\n",UpperClosestFib,++FibbCounter);
+    }
+    else
+    {
+        printf("%d,%d\n",LowerClosestFib,FibbCounter);
+    }
+}
