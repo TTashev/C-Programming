@@ -1,0 +1,79 @@
+//Create a task that is checking if 10 numbers that are inputed by the user are :
+//- odd or even
+//- multiple of 3
+//- multiple of 5
+//- multiple of 19
+//- the result of division by 10
+//- the result of division by 17
+//he data is inputed by the user and separated by ‘,’.
+//Example:
+//Input:
+//2,4,8,15,16,23,42,88,91.7,17
+//Output:
+//2 - even, no, no, no, 0.2000, 0.1176
+//4 - even, no, no, no, 0.4000, 0.2353
+//8 - even, no, no, no, 0.8000, 0.4706
+//15 - odd, yes, yes, no, 1.5000, 0.8824
+//16 - even, no, no, no, 1.6000, 0.9412
+//23 - odd, no, no, no, 2.3000, 1.3529
+//and so on ………
+
+#include <stdio.h>
+#include <stdlib.h>
+
+void EvaluteNumber(int number)
+
+int main()
+{
+    int num, i;
+    for(i = 1; i <= 10; i++)
+    {
+        scanf("%d",&num);
+        EvaluteNumber(num);
+    }
+    return 0;
+}
+
+void EvaluteNumber(int number)
+{
+    int IsEvenOrOdd = number % 2 == 0 ? 1 : 0;
+    int MultipleOfThree = number % 3 == 0 ? 1 : 0;
+    int MultipleOfFive = number % 5 == 0 ? 1 : 0;
+    int MultipleOfNineteen = number % 19 == 0 ? 1 : 0;
+    double DivisionOfTen, DivisionOfSeventeen;
+    if(IsEvenOrOdd == 1)
+    {
+        printf("even,");
+    }
+    else
+    {
+        printf("odd,");
+    }
+    if(MultipleOfThree == 1)
+    {
+        printf("yes,");
+    }
+    else
+    {
+        printf("no,");
+    }
+    if(MultipleOfFive == 1)
+    {
+        printf("yes,");
+    }
+    else
+    {
+        printf("no,");
+    }
+    if(MultipleOfNineteen == 1)
+    {
+        printf("yes,");
+    }
+    else
+    {
+        printf("no,");
+    }
+    DivisionOfTen = (double)number / 10;
+    DivisionOfSeventeen = (double)number / 17;
+    printf("%.4f,%.4f\n",DivisionOfTen,DivisionOfSeventeen);
+}
